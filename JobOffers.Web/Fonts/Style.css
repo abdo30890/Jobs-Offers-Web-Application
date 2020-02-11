@@ -1,0 +1,47 @@
+﻿@font-face {
+    
+             font-family: 'ge_ss_two_bold';
+             src: url('ge_ss_two_bold.otf') format('opentype');
+
+}
+.navbar-default {
+    background-color: #333;
+    border-color: #e7e7e7;
+   
+}
+.nav > li {
+    position: relative;
+    display: block;
+    height: 75px;
+    padding-top: 10px;
+}
+.navbar-default .navbar-nav > li > a {
+        color: #c1904a;
+        font-family: 'ge_ss_two_bold';
+    }
+.navbar-default .navbar-nav > li > a:hover {
+    color: #c37748;
+    
+}
+
+.myfooter {
+    background-color: #c1904a;
+    padding: 10px;
+    font-family: 'ge_ss_two_bold';
+    text-align: justify;
+}
+.subfooter {
+    background-color: #333;
+    color:white;
+    padding: 10px;
+    font-family: 'ge_ss_two_bold';
+    text-align: center;
+}
+.myfooter a {
+    color: #375785;
+}
+.myfooter h3 ul {
+    margin: 10px;
+}
+
+
