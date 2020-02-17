@@ -136,6 +136,7 @@ namespace JobOffers.Web.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            ViewBag.UserType = new SelectList(new[] {"باحث", "ناشر"});
             return View();
         }
 
@@ -148,7 +149,9 @@ namespace JobOffers.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email };
+                ViewBag.UserType = new SelectList(new[] { "باحث", "ناشر" });
+
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email , UserType = model.UserType};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

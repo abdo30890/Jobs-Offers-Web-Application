@@ -69,6 +69,9 @@ namespace JobOffers.Web.Models
         [Required]
         [DisplayName("اسم المستخدم")]
         public string UserName { get; set; }
+        [Required]
+        [DisplayName("نوع المستخدم")]
+        public string UserType { get; set; }
 
         [Required]
         [EmailAddress]
