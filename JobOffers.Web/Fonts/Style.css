@@ -4,9 +4,10 @@
              src: url('ge_ss_two_bold.otf') format('opentype');
 
 }
+
 body {
 
-    padding-top:100px;
+    padding-top:50px;
 }
 .navbar-default {
     background-color: #333;
@@ -16,7 +17,7 @@ body {
 .nav > li {
     position: relative;
     display: block;
-    height: 75px;
+    height: 60px;
     padding-top: 10px;
 }
 .navbar-default .navbar-nav > li > a {
@@ -30,14 +31,14 @@ body {
 
 .myfooter {
     background-color: #c1904a;
-    padding: 10px;
+    padding: 5px;
     font-family: 'ge_ss_two_bold';
     text-align: justify;
 }
 .subfooter {
     background-color: #333;
     color:white;
-    padding: 10px;
+    padding: 5px;
     font-family: 'ge_ss_two_bold';
     text-align: center;
 }
@@ -48,8 +49,8 @@ body {
     margin: 10px;
 }
 .logo-size {
-    width : 100px;
-    height: 60px;
+    width : 80px;
+    height: 50px;
     background-color : white;
     margin-top : -7px;
 }
