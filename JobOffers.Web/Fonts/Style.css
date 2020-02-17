@@ -43,5 +43,11 @@
 .myfooter h3 ul {
     margin: 10px;
 }
+.logo-size {
+    width : 100px;
+    height: 60px;
+    background-color : white;
+    margin-top : -7px;
+}
 
 
