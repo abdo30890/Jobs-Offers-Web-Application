@@ -4,6 +4,10 @@
              src: url('ge_ss_two_bold.otf') format('opentype');
 
 }
+body {
+
+    padding-top:100px;
+}
 .navbar-default {
     background-color: #333;
     border-color: #e7e7e7;
