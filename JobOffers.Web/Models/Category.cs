@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace JobOffers.Web.Models
@@ -12,5 +13,8 @@ namespace JobOffers.Web.Models
         [Required]
         [DisplayName("وصف النوع")]
         public string CategoryDescription { get; set; }
+
+        public ICollection<Job> Jobs { get; set; }
+        
     }
 }

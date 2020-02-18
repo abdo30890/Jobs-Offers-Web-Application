@@ -31,5 +31,7 @@ namespace JobOffers.Web.Models
         }
 
         public System.Data.Entity.DbSet<JobOffers.Web.Models.Category> Categories { get; set; }
+
+        public System.Data.Entity.DbSet<JobOffers.Web.Models.Job> Jobs { get; set; }
     }
 }
