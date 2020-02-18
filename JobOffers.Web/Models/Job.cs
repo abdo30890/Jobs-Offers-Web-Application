@@ -17,6 +17,6 @@ namespace JobOffers.Web.Models
         public string JobImage { get; set; }
         [DisplayName("نوع الوظيفة")]
         public int CategoryId { get; set; }
-        public Category Category { get; set; }
+        public virtual Category Category { get; set; }
     }
 }
