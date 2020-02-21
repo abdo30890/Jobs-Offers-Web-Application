@@ -13,7 +13,7 @@ namespace JobOffers.Web
             var builder = new SqlConnectionStringBuilder()
 
             {
-                DataSource = @"Abdelrahman\SQLEXPRESS",
+                DataSource = @".\SQLEXPRESS",
                 InitialCatalog = "JobOffersDB",
                 UserID = "sa",
                 Password = "WikiUX@01000"

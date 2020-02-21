@@ -88,7 +88,7 @@
                     var fileName = document.getElementById("MyImage").value;
                     var fileExtension = fileName.substr(fileName.lastIndexOf('.') + 1);
                     var validExtension = ['jpg', 'png', 'gif'];
-                    if ($.inArray(fileExtension, validExtension) == -1) {
+                    if ($.inArray(fileExtension, validExtension) === -1) {
 
                         $("#error-div").fadeIn();
                         $("#view-error").append("الرجاء قم بأختيار صورة صالحة");
