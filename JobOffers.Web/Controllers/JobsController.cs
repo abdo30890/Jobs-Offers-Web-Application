@@ -89,10 +89,18 @@ namespace JobOffers.Web.Controllers
         public ActionResult Edit(Job job, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
+
             {
-                string path = Path.Combine(Server.MapPath("~/Uploads"), upload.FileName);
-                upload.SaveAs(path);
-                job.JobImage = upload.FileName;
+                string oldPath = Path.Combine(Server.MapPath("~/Uploads"), job.JobImage);
+
+                if (upload != null)
+                {
+                    System.IO.File.Delete(oldPath);
+                    string path = Path.Combine(Server.MapPath("~/Uploads"), upload.FileName);
+                    upload.SaveAs(path);
+                    job.JobImage = upload.FileName;
+                }
+                
                 db.Entry(job).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
