@@ -14,9 +14,11 @@ namespace JobOffers.Web.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext db;
 
         public AccountController()
         {
+            db = new ApplicationDbContext();
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -136,7 +138,7 @@ namespace JobOffers.Web.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            ViewBag.UserType = new SelectList(new[] {"باحث", "ناشر"});
+            ViewBag.UserType = new SelectList(db.Roles.Where(a => !a.Name.Contains("Administrators")), "Name","Name");
             return View();
         }
 
@@ -149,7 +151,7 @@ namespace JobOffers.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                ViewBag.UserType = new SelectList(new[] { "باحث", "ناشر" });
+                ViewBag.UserType = new SelectList(db.Roles.Where(a=>!a.Name.Contains("Administrators")), "Name", "Name");
 
                 var user = new ApplicationUser { UserName = model.UserName, Email = model.Email , UserType = model.UserType};
                 var result = await UserManager.CreateAsync(user, model.Password);
@@ -162,7 +164,7 @@ namespace JobOffers.Web.Controllers
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
+                    await UserManager.AddToRoleAsync(user.Id, model.UserType);
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);

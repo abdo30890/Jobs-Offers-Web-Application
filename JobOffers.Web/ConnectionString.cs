@@ -13,30 +13,30 @@ namespace JobOffers.Web
             var builder = new SqlConnectionStringBuilder()
 
             {
-                DataSource = @".\SQLEXPRESS",
+                DataSource = @"ABDELRAHMAN\SQLEXPRESS",
                 InitialCatalog = "JobOffersDB",
                 UserID = "sa",
-                Password = "WikiUX@01000"
+                Password = "72031997"
 
             };
 
             return builder.ConnectionString;
 
         }
-        public static string Development()
-        {
-            var builder = new SqlConnectionStringBuilder()
+        //public static string Development()
+        //{
+        //    var builder = new SqlConnectionStringBuilder()
 
-            {
-                DataSource = @".\SQLEXPRESS",
-                InitialCatalog = "Jobs",
-                UserID = "sa",
-                Password = "Eslam@01000727540"
+        //    {
+        //        DataSource = @".\SQLEXPRESS",
+        //        InitialCatalog = "JobsDb",
+        //        UserID = "sa",
+        //      //  Password = "Eslam@01000727540"
 
-            };
+        //    };
 
-            return builder.ConnectionString;
+        //    return builder.ConnectionString;
 
-        }
+        //}
     }
 }
