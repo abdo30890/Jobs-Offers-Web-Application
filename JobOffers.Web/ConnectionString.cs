@@ -23,5 +23,20 @@ namespace JobOffers.Web
             return builder.ConnectionString;
 
         }
+        public static string Development()
+        {
+            var builder = new SqlConnectionStringBuilder()
+
+            {
+                DataSource = @".\SQLEXPRESS",
+                InitialCatalog = "Jobs",
+                UserID = "sa",
+                Password = "Eslam@01000727540"
+
+            };
+
+            return builder.ConnectionString;
+
+        }
     }
 }

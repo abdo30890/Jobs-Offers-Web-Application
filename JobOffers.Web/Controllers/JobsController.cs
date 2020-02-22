@@ -49,13 +49,17 @@ namespace JobOffers.Web.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create( Job job , HttpPostedFileBase upload)
+        public ActionResult Create( Job job , HttpPostedFileBase upload = null)
         {
             if (ModelState.IsValid)
             {
-                string path = Path.Combine(Server.MapPath("~/Uploads"),upload.FileName);
-                upload.SaveAs(path);
-                job.JobImage = upload.FileName;
+                if (upload != null)
+                {
+                    string path = Path.Combine(Server.MapPath("~/Uploads"), upload.FileName);
+                    upload.SaveAs(path);
+                    job.JobImage = upload.FileName;
+                }
+                job.JobImage = null;
                 db.Jobs.Add(job);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -91,11 +95,17 @@ namespace JobOffers.Web.Controllers
             if (ModelState.IsValid)
 
             {
-                string oldPath = Path.Combine(Server.MapPath("~/Uploads"), job.JobImage);
-
+                string oldPath = null;
+                if (job.JobImage != null)
+                {
+                    oldPath = Path.Combine(Server.MapPath("~/Uploads"), job.JobImage);
+                }
                 if (upload != null)
                 {
-                    System.IO.File.Delete(oldPath);
+                    if (oldPath != null)
+                    {
+                        System.IO.File.Delete(oldPath);
+                    }
                     string path = Path.Combine(Server.MapPath("~/Uploads"), upload.FileName);
                     upload.SaveAs(path);
                     job.JobImage = upload.FileName;
